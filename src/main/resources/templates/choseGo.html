@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+body{
+text-align:center;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../home">Sheridan Rec Volleyball</a>
+				<ul class="nav navbar-nav">
+      <li class="active"><a href="../home">Home</a></li>
+      </ul>
+			</div>
+		</div>
+	</nav>
+<form action="/doMove">
+Chose Player :<select name="pid"><option th:each="p:${players}"th:value="${p.getId()}"th:text="${p.getName()}"/></select>
+
+Chose Team to Go:<select name="tid"><option th:each="t:${teams}"th:value="${t.getId()}"th:text="${t.getName()}"/></select>
+
+<input type="submit" value = "Do Move"/>
+</form><br>
+</body>
+</html>

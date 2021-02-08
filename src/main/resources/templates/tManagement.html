@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../home">Sheridan Rec Volleyball</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../home">Home</a></li>
+      <li><a href="../search">Search</a></li>
+      <li><a href="../pManagement">Player Management</a></li>
+      <li><a href="../tManagement">Team Management</a></li>
+      <li><a href="../switch">Swap Players</a></li>
+      <li><a href="../move">Move Players</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1>All Teams</h1>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Numbers</th>
+	</tr>
+	<tr th:each = "t:${teams}">
+		<td th:text="${t.name}"></td>
+		<!--  <td th:text="${t.number}"></td> -->
+		<td th:text="${t.players.size()}"></td>
+		<td>
+			<a href="" th:href="@{/showMembers/{id}(id=${t.id})}">Show Members</a>
+		</td>
+		<!-- 
+		<td>
+			<a href="" th:href="@{/editT/{id}(id=${t.id})}">Edit</a>
+		</td>
+		<td>
+			<a href="" th:href="@{/deleteT/{id}(id=${t.id})}">Delete</a>
+		</td>    -->
+	</tr>
+</table>
+</body>
+</html>
