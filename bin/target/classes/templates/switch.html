@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+body{
+text-align:center;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../home">Sheridan Rec Volleyball</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../home">Home</a></li>
+      <li><a href="../search">Search</a></li>
+      <li><a href="../pManagement">Player Management</a></li>
+      <li><a href="../tManagement">Team Management</a></li>
+      <li><a href="../switch">Swap Players</a></li>
+      <li><a href="../move">Move Players</a></li>
+    </ul>
+  </div>
+</nav>
+<h1>Now Choose Two Teams</h1>
+
+<form action="/chooseTeams">
+First Team :<select name="id1"><option th:each="t:${teams}"th:value="${t.getId()}"th:text="${t.getName()}"/></select>
+
+Second Team :<select name="id2"><option th:each="t:${teams}"th:value="${t.getId()}"th:text="${t.getName()}"/></select>
+
+<input type="submit" value = "Search"/>
+</form><br>
+
+</body>
+</html>

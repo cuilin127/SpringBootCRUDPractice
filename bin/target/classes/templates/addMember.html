@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../home">Sheridan Rec Volleyball</a>
+				<ul class="nav navbar-nav">
+      <li class="active"><a href="../home">Home</a></li>
+      </ul>
+			</div>
+		</div>
+	</nav>
+	<div class="topnav">
+		<a href="..">Home</a>
+	</div>
+	<h1>Chose a available Player that has no team</h1>
+	<form action="#" th:action="@{/addMemberToTeam}" th:object="${players}">
+		<input type="hidden" th:value="${teamId}" name="teamId" /><br> 
+		<select
+			name="player">
+			<option th:each="p:${players}" th:value="${p.getId()}"
+				th:text="${p.getName()}" />
+		</select><br>
+		<input type="submit" value="Add a New Member to team"/>
+	</form>
+</body>
+</html>
